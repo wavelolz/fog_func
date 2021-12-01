@@ -2,6 +2,9 @@ import pandas as pd
 import numpy as np
 
 ##--------
+## 這是一個計算模型配適度的程式，輸入為一個dataframe
+## 範例輸入:
+##
 
 
 
@@ -10,7 +13,7 @@ def judge(df):
 
   result = []
   for i in range(len(df)):
-    tn, fp, fn, tp = df[i, 0], df[i, 1], df[i, 2], df[i, 3]
+    tn, fp, fn, tp = df.iloc[i, 0], df.iloc[i, 1], df.iloc[i, 2], df.iloc[i, 3]
     sen = round(tp / (tp + fn), 4)
     spec = round(tn / (fp + tn), 4)
     accu = round((tp + tn) / sum([tp, tn, fn, fp]), 4)
