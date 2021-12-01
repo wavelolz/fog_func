@@ -2,9 +2,12 @@ import pandas as pd
 import numpy as np
 
 ##--------
-## 這是一個計算模型配適度的程式，輸入為一個dataframe
-## 範例輸入:
-##
+## 這是一個計算模型準確度的程式，輸入為一個dataframe
+## 範例輸入:假設有3個模型
+##      true_negative   false_positive   
+## 1
+## 2
+## 3
 
 
 
@@ -23,5 +26,5 @@ def judge(df):
   result = pd.DataFrame(result)
 
   result.columns = ["Sensitivity", "Specificity", "Accuracy", "Precision", "F1-score"]
-  result.index = ["Model_" + str((i + 1)) for i in range(len(df))]
+  result.index = df.index
   return(result)
