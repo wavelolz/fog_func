@@ -3,11 +3,19 @@ import numpy as np
 
 ##--------
 ## 這是一個計算模型準確度的程式，輸入為一個dataframe
-## 範例輸入:假設有3個模型
-##      true_negative   false_positive   
-## 1
+## 範例輸入:假設有3個模型，則dataframe應為以下形式
+##      # of true_negative    # of false_positive   # of false_negative   # of true_positive
+## 1           
 ## 2
 ## 3
+
+## Confusion matrix
+##          0               1
+##  0   true_negative   false_positive
+##
+##
+##
+##  1   false_negative  true_positive
 
 
 
