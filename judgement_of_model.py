@@ -21,4 +21,4 @@ def judge(df):
 
   result.columns = ["Sensitivity", "Specificity", "Accuracy", "Precision", "F1-score"]
   result.index = ["Model_" + str((i + 1)) for i in range(len(df))]
-  print(result)
+  return(result)
