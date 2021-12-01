@@ -30,7 +30,14 @@ label = data[10][index[0] : index[1]]
  
 fig, ax = plt.subplots(figsize = [20, 10], nrows= len(output_data))
 
-
+def plotting(i):
+    ax[i].plot(x, y[i])
+    ax[i].fill_between(x, y1 = min(min(y[i]), -2), y2 = max(max(y[i]), 2), where = (label == 0), alpha = 0.3, color = "yellow")
+    ax[i].fill_between(x, y1 = min(min(y[i]), -2), y2 = max(max(y[i]), 2), where = (label == 2), alpha = 0.3, color = "red")
+    ax[i].set_ylim([min(min(y[i]), -2), max(max(y[i]), 2)])
+    ax[i].grid(True)
+    
+    
 for i in range(len(output_data) - 1):
     ax[i].tick_params(
         axis = "x",
