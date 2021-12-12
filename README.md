@@ -3,3 +3,4 @@
 ## 1. ttest.py -- t檢定和wilcoxon檢定的程式
 ## 2. freezshow.py -- 呈現dynamic raw data的程式
 ## 3. judgement_of_model -- 呈現sensitivity, specificity...的程式
+## 4. cross_validation -- 以 decision tree 來做 leave-one-out cv 的結果
