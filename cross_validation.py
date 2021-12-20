@@ -4,7 +4,7 @@ import numpy as np
 from sklearn import tree
 from sklearn.metrics import confusion_matrix
 
-data = pd.read_csv("D:/python/data/cut_all_1sec0.75olp.csv")
+data = pd.read_csv("D:/data/balanced_cut_all_1sec0.75olp.csv")
 data = data[['y_u_max', 'z_u_max', 'x_u_max', 'y_a_fft_totalpower', 'y_u_mean',
        'y_a_std', 'y_a_fft_min', 'y_u_std', 'y_a_fft_max',
        'y_u_fft_totalpower', 'y_a_med', 'z_u_std', 'y_a_min', 'y_u_fft_max',
@@ -13,8 +13,9 @@ data = data[['y_u_max', 'z_u_max', 'x_u_max', 'y_a_fft_totalpower', 'y_u_mean',
        'z_a_fft_totalpower', 'y_u_fft_min', "label", "id"]]
 
 
+
 result = []
-for i in range(1, 11, 1):
+for i in [1, 2, 3, 5, 6, 7, 8, 9]:
     # data selection
     non_freeze = [i, 4, 10]
     data_training = data.drop(data.loc[data["id"].isin(non_freeze)].index)
@@ -29,10 +30,9 @@ for i in range(1, 11, 1):
     result.append(list(confusion_matrix(data_testing.iloc[:, -2], predict).ravel()))
 
 
-row_name = [f"leave-P{i}-out" for i in range(1, 11, 1)]
+row_name = [f"leave-P{i}-out" for i in [1, 2, 3, 5, 6, 7, 8, 9]]
 df = pd.DataFrame(result)
 df.index = row_name
-
 
 def judge(df):
 
@@ -58,4 +58,3 @@ avg_table = table.apply(lambda x: round(np.nanmean(x), 4), axis = 0)
 avg_table.name = "Average without NaN"
 table = table.append(avg_table)
 print(table)
-
